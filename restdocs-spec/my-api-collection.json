@@ -1,0 +1,120 @@
+{
+  "info" : {
+    "name" : "spring-rest-docs",
+    "version" : "0.0.1-SNAPSHOT",
+    "schema" : "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item" : [ {
+    "id" : "postCustomers",
+    "name" : "/customers",
+    "description" : "The customer post resource",
+    "variable" : [ ],
+    "event" : [ ],
+    "request" : {
+      "url" : {
+        "protocol" : "http",
+        "host" : "localhost",
+        "path" : "/customers"
+      },
+      "method" : "POST",
+      "header" : [ {
+        "key" : "X-AUTH-TOKEN",
+        "value" : "1234",
+        "disabled" : false,
+        "description" : "The authentication token"
+      }, {
+        "key" : "Content-Type",
+        "value" : "application/json",
+        "disabled" : false
+      } ],
+      "body" : {
+        "mode" : "raw",
+        "raw" : "{\n  \"firstName\" : \"John\",\n  \"lastName\" : \"Doe\",\n  \"email\" : \"john.doe@gmail.com\",\n  \"phone\" : \"1234567890\"\n}",
+        "urlencoded" : [ ]
+      }
+    },
+    "response" : [ {
+      "id" : "postCustomers",
+      "name" : "postCustomers",
+      "originalRequest" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "localhost",
+          "path" : "/customers"
+        },
+        "method" : "POST",
+        "header" : [ {
+          "key" : "X-AUTH-TOKEN",
+          "value" : "1234",
+          "disabled" : false,
+          "description" : "The authentication token"
+        }, {
+          "key" : "Content-Type",
+          "value" : "application/json",
+          "disabled" : false
+        } ],
+        "body" : {
+          "mode" : "raw",
+          "raw" : "{\n  \"firstName\" : \"John\",\n  \"lastName\" : \"Doe\",\n  \"email\" : \"john.doe@gmail.com\",\n  \"phone\" : \"1234567890\"\n}",
+          "urlencoded" : [ ]
+        }
+      },
+      "header" : [ {
+        "key" : "Content-Type",
+        "value" : "application/json",
+        "disabled" : false
+      } ],
+      "cookie" : [ ],
+      "body" : "{\n  \"customerId\" : \"1a61c79f-2f1a-40d5-9064-34f662f71b65\",\n  \"firstName\" : \"John\",\n  \"lastName\" : \"Doe\",\n  \"email\" : \"john.doe@gmail.com\",\n  \"phone\" : \"1234567890\"\n}",
+      "code" : 200
+    } ]
+  }, {
+    "id" : "getCustomers",
+    "name" : "/customers",
+    "description" : "The customers resource",
+    "variable" : [ ],
+    "event" : [ ],
+    "request" : {
+      "url" : {
+        "protocol" : "http",
+        "host" : "localhost",
+        "path" : "/customers"
+      },
+      "method" : "GET",
+      "header" : [ {
+        "key" : "X-AUTH-TOKEN",
+        "value" : "1234",
+        "disabled" : false,
+        "description" : "The authentication token"
+      } ]
+    },
+    "response" : [ {
+      "id" : "getCustomers",
+      "name" : "getCustomers",
+      "originalRequest" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "localhost",
+          "path" : "/customers"
+        },
+        "method" : "GET",
+        "header" : [ {
+          "key" : "X-AUTH-TOKEN",
+          "value" : "1234",
+          "disabled" : false,
+          "description" : "The authentication token"
+        } ]
+      },
+      "header" : [ {
+        "key" : "Content-Type",
+        "value" : "application/json",
+        "disabled" : false
+      } ],
+      "cookie" : [ ],
+      "body" : "[ {\n  \"customerId\" : \"6aa3fc8b-4e0b-4ecb-bd73-a8efb9395eb1\",\n  \"firstName\" : \"John\",\n  \"lastName\" : \"Doe\",\n  \"email\" : \"john.doe@gmail.com\",\n  \"phone\" : \"1234567890\"\n}, {\n  \"customerId\" : \"c2ad1603-7665-4334-96f1-4e8ca3c863f6\",\n  \"firstName\" : \"Jane\",\n  \"lastName\" : \"Doe\",\n  \"email\" : \"jane.doe@gmail.com\",\n  \"phone\" : \"1234567891\"\n} ]",
+      "code" : 200
+    } ]
+  } ],
+  "event" : [ ],
+  "variable" : [ ]
+}

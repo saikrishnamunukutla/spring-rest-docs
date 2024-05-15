@@ -1,0 +1,161 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "spring-rest-docs",
+    "description" : "Demo project for spring rest docs",
+    "version" : "0.0.1-SNAPSHOT"
+  },
+  "servers" : [ {
+    "url" : "http://localhost"
+  } ],
+  "tags" : [ ],
+  "paths" : {
+    "/customers" : {
+      "get" : {
+        "tags" : [ "customers" ],
+        "summary" : "The customers resource",
+        "description" : "The customers resource",
+        "operationId" : "getCustomers",
+        "parameters" : [ {
+          "name" : "X-AUTH-TOKEN",
+          "in" : "header",
+          "description" : "The authentication token",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "1234"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "200",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Customers.Customer"
+                },
+                "examples" : {
+                  "getCustomers" : {
+                    "value" : "[ {\n  \"customerId\" : \"6aa3fc8b-4e0b-4ecb-bd73-a8efb9395eb1\",\n  \"firstName\" : \"John\",\n  \"lastName\" : \"Doe\",\n  \"email\" : \"john.doe@gmail.com\",\n  \"phone\" : \"1234567890\"\n}, {\n  \"customerId\" : \"c2ad1603-7665-4334-96f1-4e8ca3c863f6\",\n  \"firstName\" : \"Jane\",\n  \"lastName\" : \"Doe\",\n  \"email\" : \"jane.doe@gmail.com\",\n  \"phone\" : \"1234567891\"\n} ]"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "customers" ],
+        "summary" : "The customers post resource",
+        "description" : "The customer post resource",
+        "operationId" : "postCustomers",
+        "parameters" : [ {
+          "name" : "X-AUTH-TOKEN",
+          "in" : "header",
+          "description" : "The authentication token",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "1234"
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/CustomerRequest"
+              },
+              "examples" : {
+                "postCustomers" : {
+                  "value" : "{\n  \"firstName\" : \"John\",\n  \"lastName\" : \"Doe\",\n  \"email\" : \"john.doe@gmail.com\",\n  \"phone\" : \"1234567890\"\n}"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "200",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Customer"
+                },
+                "examples" : {
+                  "postCustomers" : {
+                    "value" : "{\n  \"customerId\" : \"1a61c79f-2f1a-40d5-9064-34f662f71b65\",\n  \"firstName\" : \"John\",\n  \"lastName\" : \"Doe\",\n  \"email\" : \"john.doe@gmail.com\",\n  \"phone\" : \"1234567890\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Customers.Customer" : {
+        "title" : "Customers.Customer",
+        "type" : "array",
+        "items" : {
+          "required" : [ "customerId", "email", "firstName", "lastName", "phone" ],
+          "type" : "object",
+          "properties" : {
+            "lastName" : {
+              "type" : "string",
+              "description" : "The last name of the customer"
+            },
+            "firstName" : {
+              "type" : "string",
+              "description" : "The first name of the customer"
+            },
+            "phone" : {
+              "type" : "string",
+              "description" : "The phone of the customer"
+            },
+            "customerId" : {
+              "type" : "string",
+              "description" : "The id of the customer"
+            },
+            "email" : {
+              "type" : "string",
+              "description" : "The email of the customer"
+            }
+          }
+        }
+      },
+      "CustomerRequest" : {
+        "title" : "CustomerRequest",
+        "type" : "object"
+      },
+      "Customer" : {
+        "title" : "Customer",
+        "required" : [ "customerId", "email", "firstName", "lastName", "phone" ],
+        "type" : "object",
+        "properties" : {
+          "lastName" : {
+            "type" : "string",
+            "description" : "The last name of the customer"
+          },
+          "firstName" : {
+            "type" : "string",
+            "description" : "The first name of the customer"
+          },
+          "phone" : {
+            "type" : "string",
+            "description" : "The phone of the customer"
+          },
+          "customerId" : {
+            "type" : "string",
+            "description" : "The id of the customer"
+          },
+          "email" : {
+            "type" : "string",
+            "description" : "The email of the customer"
+          }
+        }
+      }
+    }
+  }
+}

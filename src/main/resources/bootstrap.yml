@@ -1,0 +1,11 @@
+spring:
+  config:
+    activate:
+      on-profile: default
+  application:
+    name: spring-rest-docs
+de:
+  flapdoodle:
+    mongodb:
+      embedded:
+        version: 4.0.2

@@ -1,0 +1,48 @@
+= Customers Api
+
+== Get Customers
+=== Http Request
+include::{snippets}/getCustomers/http-request.adoc[]
+
+=== Http Response 200
+include::{snippets}/getCustomers/http-response.adoc[]
+
+== Response Body 200
+include::{snippets}/getCustomers/response-body.adoc[]
+
+== Response Fields 200
+include::{snippets}/getCustomers/response-fields.adoc[]
+
+== Headers 200
+include::{snippets}/getCustomers/request-headers.adoc[]
+
+
+== Post Customers
+
+=== Http Request
+include::{snippets}/postCustomers/http-request.adoc[]
+== Headers 200
+include::{snippets}/postCustomers/request-headers.adoc[]
+== Request Body 200
+include::{snippets}/postCustomers/request-body.adoc[]
+== Request Fields 200
+include::{snippets}/postCustomers/request-fields.adoc[]
+=== Http Response 200
+include::{snippets}/postCustomers/http-response.adoc[]
+== Response Body 200
+include::{snippets}/postCustomers/response-body.adoc[]
+== Response Fields 200
+include::{snippets}/postCustomers/response-fields.adoc[]
+
+== Delete Customers
+
+=== Http Request
+include::{snippets}/deleteCustomers/http-request.adoc[]
+== Headers
+include::{snippets}/deleteCustomers/request-headers.adoc[]
+== Path Params
+include::{snippets}/deleteCustomers/path-parameters.adoc[]
+=== Http Response 204
+include::{snippets}/deleteCustomers/http-response.adoc[]
+
+

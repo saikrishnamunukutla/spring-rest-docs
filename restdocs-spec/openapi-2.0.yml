@@ -1,0 +1,147 @@
+swagger: "2.0"
+info:
+  description: Demo project for spring rest docs
+  version: 0.0.1-SNAPSHOT
+  title: spring-rest-docs
+host: localhost
+tags: []
+schemes:
+- http
+paths:
+  /customers:
+    get:
+      tags:
+      - customers
+      summary: The customers resource
+      description: The customers resource
+      operationId: getCustomers
+      produces:
+      - application/json
+      parameters:
+      - name: X-AUTH-TOKEN
+        in: header
+        description: The authentication token
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          examples:
+            application/json: |-
+              [ {
+                "customerId" : "6aa3fc8b-4e0b-4ecb-bd73-a8efb9395eb1",
+                "firstName" : "John",
+                "lastName" : "Doe",
+                "email" : "john.doe@gmail.com",
+                "phone" : "1234567890"
+              }, {
+                "customerId" : "c2ad1603-7665-4334-96f1-4e8ca3c863f6",
+                "firstName" : "Jane",
+                "lastName" : "Doe",
+                "email" : "jane.doe@gmail.com",
+                "phone" : "1234567891"
+              } ]
+          schema:
+            $ref: '#/definitions/Customers.Customer'
+    post:
+      tags:
+      - customers
+      summary: The customers post resource
+      description: The customer post resource
+      operationId: postCustomers
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: X-AUTH-TOKEN
+        in: header
+        description: The authentication token
+        required: true
+        type: string
+      - in: body
+        name: ""
+        required: false
+        schema:
+          $ref: '#/definitions/customers-1565248099'
+        x-examples:
+          application/json: |-
+            {
+              "firstName" : "John",
+              "lastName" : "Doe",
+              "email" : "john.doe@gmail.com",
+              "phone" : "1234567890"
+            }
+      responses:
+        "200":
+          description: ""
+          examples:
+            application/json: |-
+              {
+                "customerId" : "1a61c79f-2f1a-40d5-9064-34f662f71b65",
+                "firstName" : "John",
+                "lastName" : "Doe",
+                "email" : "john.doe@gmail.com",
+                "phone" : "1234567890"
+              }
+          schema:
+            $ref: '#/definitions/Customer'
+definitions:
+  Customer:
+    type: object
+    required:
+    - customerId
+    - email
+    - firstName
+    - lastName
+    - phone
+    properties:
+      lastName:
+        type: string
+        description: The last name of the customer
+      firstName:
+        type: string
+        description: The first name of the customer
+      phone:
+        type: string
+        description: The phone of the customer
+      customerId:
+        type: string
+        description: The id of the customer
+      email:
+        type: string
+        description: The email of the customer
+  Customers.Customer:
+    type: array
+    items:
+      type: object
+      properties:
+        lastName:
+          type: string
+          description: The last name of the customer
+        firstName:
+          type: string
+          description: The first name of the customer
+        phone:
+          type: string
+          description: The phone of the customer
+        customerId:
+          type: string
+          description: The id of the customer
+        email:
+          type: string
+          description: The email of the customer
+      required:
+      - customerId
+      - email
+      - firstName
+      - lastName
+      - phone
+  customers-1565248099:
+    example: |-
+      {
+        "firstName" : "John",
+        "lastName" : "Doe",
+        "email" : "john.doe@gmail.com",
+        "phone" : "1234567890"
+      }
