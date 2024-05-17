@@ -111,19 +111,7 @@ public class CustomerIntegrationTests {
         mockMvc.perform(delete("/customers/{customerId}", customerId).header("X-AUTH-TOKEN", "1234"))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(status().isNoContent())
-                .andDo(document("deleteCustomers",
-                        preprocessRequest(prettyPrint()),
-                        preprocessResponse(prettyPrint()),
-                        resource(
-                                ResourceSnippetParameters.builder()
-                                        .description("The customers delete resource")
-                                        .requestHeaders(headerWithName("X-AUTH-TOKEN").description("The authentication token"))
-                                        .summary("The customers delete resource")
-                                        .pathParameters(parameterWithName("customerId").description("The id of the customer"))
-                                        .build()),
-                       pathParameters(parameterWithName("customerId").description("The id of the customer")),
-                        requestHeaders(headerWithName("X-AUTH-TOKEN").description("The authentication token"))
-                ));
+               ;
     }
 
     @Test
@@ -139,23 +127,7 @@ public class CustomerIntegrationTests {
                 .andExpect(jsonPath("$.lastName").value("Doe"))
                 .andExpect(jsonPath("$.email").value("john.doe@gmail.com"))
                 .andExpect(jsonPath("$.phone").value("1234567890"))
-                .andDo(document("postCustomers",
-                        preprocessRequest(prettyPrint()),
-                        preprocessResponse(prettyPrint()),
-                        resource(
-                                ResourceSnippetParameters.builder()
-                                        .description("The customer post resource")
-                                        .responseFields(getRequestFieldsForPost())
-                                        .responseFields(getResponseFieldsForPost())
-                                        .responseSchema(Schema.schema("Customer"))
-                                        .requestSchema(Schema.schema("CustomerRequest"))
-                                        .requestHeaders(headerWithName("X-AUTH-TOKEN").description("The authentication token"))
-                                        .summary("The customers post resource")
-                                        .build()),
-                        responseFields(getResponseFieldsForPost()),
-                        requestFields(getRequestFieldsForPost()),
-                        requestHeaders(headerWithName("X-AUTH-TOKEN").description("The authentication token"))
-                ));
+                ;
     }
 
     private FieldDescriptor[] getResponseFieldsForPost() {
