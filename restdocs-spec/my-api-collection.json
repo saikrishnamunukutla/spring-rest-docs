@@ -5,70 +5,6 @@
     "schema" : "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item" : [ {
-    "id" : "postCustomers",
-    "name" : "/customers",
-    "description" : "The customer post resource",
-    "variable" : [ ],
-    "event" : [ ],
-    "request" : {
-      "url" : {
-        "protocol" : "http",
-        "host" : "localhost",
-        "path" : "/customers"
-      },
-      "method" : "POST",
-      "header" : [ {
-        "key" : "X-AUTH-TOKEN",
-        "value" : "1234",
-        "disabled" : false,
-        "description" : "The authentication token"
-      }, {
-        "key" : "Content-Type",
-        "value" : "application/json",
-        "disabled" : false
-      } ],
-      "body" : {
-        "mode" : "raw",
-        "raw" : "{\n  \"firstName\" : \"John\",\n  \"lastName\" : \"Doe\",\n  \"email\" : \"john.doe@gmail.com\",\n  \"phone\" : \"1234567890\"\n}",
-        "urlencoded" : [ ]
-      }
-    },
-    "response" : [ {
-      "id" : "postCustomers",
-      "name" : "postCustomers",
-      "originalRequest" : {
-        "url" : {
-          "protocol" : "http",
-          "host" : "localhost",
-          "path" : "/customers"
-        },
-        "method" : "POST",
-        "header" : [ {
-          "key" : "X-AUTH-TOKEN",
-          "value" : "1234",
-          "disabled" : false,
-          "description" : "The authentication token"
-        }, {
-          "key" : "Content-Type",
-          "value" : "application/json",
-          "disabled" : false
-        } ],
-        "body" : {
-          "mode" : "raw",
-          "raw" : "{\n  \"firstName\" : \"John\",\n  \"lastName\" : \"Doe\",\n  \"email\" : \"john.doe@gmail.com\",\n  \"phone\" : \"1234567890\"\n}",
-          "urlencoded" : [ ]
-        }
-      },
-      "header" : [ {
-        "key" : "Content-Type",
-        "value" : "application/json",
-        "disabled" : false
-      } ],
-      "cookie" : [ ],
-      "body" : "{\n  \"customerId\" : \"101e5622-eb7e-45de-80b4-9f1b49c12b7f\",\n  \"firstName\" : \"John\",\n  \"lastName\" : \"Doe\",\n  \"email\" : \"john.doe@gmail.com\",\n  \"phone\" : \"1234567890\"\n}",
-      "code" : 200
-    } ]
-  }, {
     "id" : "getCustomers",
     "name" : "/customers",
     "description" : "The customers resource",
@@ -111,60 +47,8 @@
         "disabled" : false
       } ],
       "cookie" : [ ],
-      "body" : "[ {\n  \"customerId\" : \"27f2bc1d-3e9f-4982-b112-6ae00a7a6bce\",\n  \"firstName\" : \"John\",\n  \"lastName\" : \"Doe\",\n  \"email\" : \"john.doe@gmail.com\",\n  \"phone\" : \"1234567890\"\n}, {\n  \"customerId\" : \"ce412495-e164-4548-bfc5-f3abf124db08\",\n  \"firstName\" : \"Jane\",\n  \"lastName\" : \"Doe\",\n  \"email\" : \"jane.doe@gmail.com\",\n  \"phone\" : \"1234567891\"\n} ]",
+      "body" : "[ {\n  \"customerId\" : \"87d062f6-fff1-4773-ac3c-adfef04efef1\",\n  \"firstName\" : \"John\",\n  \"lastName\" : \"Doe\",\n  \"email\" : \"john.doe@gmail.com\",\n  \"phone\" : \"1234567890\"\n}, {\n  \"customerId\" : \"d16caf50-512f-42d7-a60d-582436013267\",\n  \"firstName\" : \"Jane\",\n  \"lastName\" : \"Doe\",\n  \"email\" : \"jane.doe@gmail.com\",\n  \"phone\" : \"1234567891\"\n} ]",
       "code" : 200
-    } ]
-  }, {
-    "id" : "deleteCustomers",
-    "name" : "/customers/{customerId}",
-    "description" : "The customers delete resource",
-    "variable" : [ ],
-    "event" : [ ],
-    "request" : {
-      "url" : {
-        "protocol" : "http",
-        "host" : "localhost",
-        "path" : "/customers/:customerId",
-        "variable" : [ {
-          "key" : "customerId",
-          "description" : "The id of the customer",
-          "system" : false,
-          "disabled" : false
-        } ]
-      },
-      "method" : "DELETE",
-      "header" : [ {
-        "key" : "X-AUTH-TOKEN",
-        "value" : "1234",
-        "disabled" : false,
-        "description" : "The authentication token"
-      } ]
-    },
-    "response" : [ {
-      "id" : "deleteCustomers",
-      "name" : "deleteCustomers",
-      "originalRequest" : {
-        "url" : {
-          "protocol" : "http",
-          "host" : "localhost",
-          "path" : "/customers/:customerId",
-          "variable" : [ {
-            "key" : "customerId",
-            "description" : "The id of the customer",
-            "system" : false,
-            "disabled" : false
-          } ]
-        },
-        "method" : "DELETE",
-        "header" : [ {
-          "key" : "X-AUTH-TOKEN",
-          "value" : "1234",
-          "disabled" : false,
-          "description" : "The authentication token"
-        } ]
-      },
-      "cookie" : [ ],
-      "code" : 204
     } ]
   } ],
   "event" : [ ],

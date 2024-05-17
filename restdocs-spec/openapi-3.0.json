@@ -36,89 +36,11 @@
                 },
                 "examples" : {
                   "getCustomers" : {
-                    "value" : "[ {\n  \"customerId\" : \"27f2bc1d-3e9f-4982-b112-6ae00a7a6bce\",\n  \"firstName\" : \"John\",\n  \"lastName\" : \"Doe\",\n  \"email\" : \"john.doe@gmail.com\",\n  \"phone\" : \"1234567890\"\n}, {\n  \"customerId\" : \"ce412495-e164-4548-bfc5-f3abf124db08\",\n  \"firstName\" : \"Jane\",\n  \"lastName\" : \"Doe\",\n  \"email\" : \"jane.doe@gmail.com\",\n  \"phone\" : \"1234567891\"\n} ]"
+                    "value" : "[ {\n  \"customerId\" : \"87d062f6-fff1-4773-ac3c-adfef04efef1\",\n  \"firstName\" : \"John\",\n  \"lastName\" : \"Doe\",\n  \"email\" : \"john.doe@gmail.com\",\n  \"phone\" : \"1234567890\"\n}, {\n  \"customerId\" : \"d16caf50-512f-42d7-a60d-582436013267\",\n  \"firstName\" : \"Jane\",\n  \"lastName\" : \"Doe\",\n  \"email\" : \"jane.doe@gmail.com\",\n  \"phone\" : \"1234567891\"\n} ]"
                   }
                 }
               }
             }
-          }
-        }
-      },
-      "post" : {
-        "tags" : [ "customers" ],
-        "summary" : "The customers post resource",
-        "description" : "The customer post resource",
-        "operationId" : "postCustomers",
-        "parameters" : [ {
-          "name" : "X-AUTH-TOKEN",
-          "in" : "header",
-          "description" : "The authentication token",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          },
-          "example" : "1234"
-        } ],
-        "requestBody" : {
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/CustomerRequest"
-              },
-              "examples" : {
-                "postCustomers" : {
-                  "value" : "{\n  \"firstName\" : \"John\",\n  \"lastName\" : \"Doe\",\n  \"email\" : \"john.doe@gmail.com\",\n  \"phone\" : \"1234567890\"\n}"
-                }
-              }
-            }
-          }
-        },
-        "responses" : {
-          "200" : {
-            "description" : "200",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Customer"
-                },
-                "examples" : {
-                  "postCustomers" : {
-                    "value" : "{\n  \"customerId\" : \"101e5622-eb7e-45de-80b4-9f1b49c12b7f\",\n  \"firstName\" : \"John\",\n  \"lastName\" : \"Doe\",\n  \"email\" : \"john.doe@gmail.com\",\n  \"phone\" : \"1234567890\"\n}"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/customers/{customerId}" : {
-      "delete" : {
-        "tags" : [ "customers" ],
-        "summary" : "The customers delete resource",
-        "description" : "The customers delete resource",
-        "operationId" : "deleteCustomers",
-        "parameters" : [ {
-          "name" : "customerId",
-          "in" : "path",
-          "description" : "The id of the customer",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "X-AUTH-TOKEN",
-          "in" : "header",
-          "description" : "The authentication token",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          },
-          "example" : "1234"
-        } ],
-        "responses" : {
-          "204" : {
-            "description" : "204"
           }
         }
       }
@@ -153,37 +75,6 @@
               "type" : "string",
               "description" : "The email of the customer"
             }
-          }
-        }
-      },
-      "CustomerRequest" : {
-        "title" : "CustomerRequest",
-        "type" : "object"
-      },
-      "Customer" : {
-        "title" : "Customer",
-        "required" : [ "customerId", "email", "firstName", "lastName", "phone" ],
-        "type" : "object",
-        "properties" : {
-          "lastName" : {
-            "type" : "string",
-            "description" : "The last name of the customer"
-          },
-          "firstName" : {
-            "type" : "string",
-            "description" : "The first name of the customer"
-          },
-          "phone" : {
-            "type" : "string",
-            "description" : "The phone of the customer"
-          },
-          "customerId" : {
-            "type" : "string",
-            "description" : "The id of the customer"
-          },
-          "email" : {
-            "type" : "string",
-            "description" : "The email of the customer"
           }
         }
       }

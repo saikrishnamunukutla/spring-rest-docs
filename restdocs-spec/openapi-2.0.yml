@@ -29,13 +29,13 @@ paths:
           examples:
             application/json: |-
               [ {
-                "customerId" : "27f2bc1d-3e9f-4982-b112-6ae00a7a6bce",
+                "customerId" : "87d062f6-fff1-4773-ac3c-adfef04efef1",
                 "firstName" : "John",
                 "lastName" : "Doe",
                 "email" : "john.doe@gmail.com",
                 "phone" : "1234567890"
               }, {
-                "customerId" : "ce412495-e164-4548-bfc5-f3abf124db08",
+                "customerId" : "d16caf50-512f-42d7-a60d-582436013267",
                 "firstName" : "Jane",
                 "lastName" : "Doe",
                 "email" : "jane.doe@gmail.com",
@@ -43,96 +43,7 @@ paths:
               } ]
           schema:
             $ref: '#/definitions/Customers.Customer'
-    post:
-      tags:
-      - customers
-      summary: The customers post resource
-      description: The customer post resource
-      operationId: postCustomers
-      consumes:
-      - application/json
-      produces:
-      - application/json
-      parameters:
-      - name: X-AUTH-TOKEN
-        in: header
-        description: The authentication token
-        required: true
-        type: string
-      - in: body
-        name: ""
-        required: false
-        schema:
-          $ref: '#/definitions/customers-1565248099'
-        x-examples:
-          application/json: |-
-            {
-              "firstName" : "John",
-              "lastName" : "Doe",
-              "email" : "john.doe@gmail.com",
-              "phone" : "1234567890"
-            }
-      responses:
-        "200":
-          description: ""
-          examples:
-            application/json: |-
-              {
-                "customerId" : "101e5622-eb7e-45de-80b4-9f1b49c12b7f",
-                "firstName" : "John",
-                "lastName" : "Doe",
-                "email" : "john.doe@gmail.com",
-                "phone" : "1234567890"
-              }
-          schema:
-            $ref: '#/definitions/Customer'
-  /customers/{customerId}:
-    delete:
-      tags:
-      - customers
-      summary: The customers delete resource
-      description: The customers delete resource
-      operationId: deleteCustomers
-      parameters:
-      - name: customerId
-        in: path
-        description: The id of the customer
-        required: true
-        type: string
-      - name: X-AUTH-TOKEN
-        in: header
-        description: The authentication token
-        required: true
-        type: string
-      responses:
-        "204":
-          description: ""
-          examples: {}
 definitions:
-  Customer:
-    type: object
-    required:
-    - customerId
-    - email
-    - firstName
-    - lastName
-    - phone
-    properties:
-      lastName:
-        type: string
-        description: The last name of the customer
-      firstName:
-        type: string
-        description: The first name of the customer
-      phone:
-        type: string
-        description: The phone of the customer
-      customerId:
-        type: string
-        description: The id of the customer
-      email:
-        type: string
-        description: The email of the customer
   Customers.Customer:
     type: array
     items:
@@ -159,11 +70,3 @@ definitions:
       - firstName
       - lastName
       - phone
-  customers-1565248099:
-    example: |-
-      {
-        "firstName" : "John",
-        "lastName" : "Doe",
-        "email" : "john.doe@gmail.com",
-        "phone" : "1234567890"
-      }
