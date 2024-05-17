@@ -1,0 +1,173 @@
+openapi: 3.0.1
+info:
+  title: spring-rest-docs
+  description: Demo project for spring rest docs
+  version: 0.0.1-SNAPSHOT
+servers:
+- url: http://localhost
+tags: []
+paths:
+  /customers:
+    get:
+      tags:
+      - customers
+      summary: The customers resource
+      description: The customers resource
+      operationId: getCustomers
+      parameters:
+      - name: X-AUTH-TOKEN
+        in: header
+        description: The authentication token
+        required: true
+        schema:
+          type: string
+        example: "1234"
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customers.Customer'
+              examples:
+                getCustomers:
+                  value: |-
+                    [ {
+                      "customerId" : "27f2bc1d-3e9f-4982-b112-6ae00a7a6bce",
+                      "firstName" : "John",
+                      "lastName" : "Doe",
+                      "email" : "john.doe@gmail.com",
+                      "phone" : "1234567890"
+                    }, {
+                      "customerId" : "ce412495-e164-4548-bfc5-f3abf124db08",
+                      "firstName" : "Jane",
+                      "lastName" : "Doe",
+                      "email" : "jane.doe@gmail.com",
+                      "phone" : "1234567891"
+                    } ]
+    post:
+      tags:
+      - customers
+      summary: The customers post resource
+      description: The customer post resource
+      operationId: postCustomers
+      parameters:
+      - name: X-AUTH-TOKEN
+        in: header
+        description: The authentication token
+        required: true
+        schema:
+          type: string
+        example: "1234"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerRequest'
+            examples:
+              postCustomers:
+                value: |-
+                  {
+                    "firstName" : "John",
+                    "lastName" : "Doe",
+                    "email" : "john.doe@gmail.com",
+                    "phone" : "1234567890"
+                  }
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+              examples:
+                postCustomers:
+                  value: |-
+                    {
+                      "customerId" : "101e5622-eb7e-45de-80b4-9f1b49c12b7f",
+                      "firstName" : "John",
+                      "lastName" : "Doe",
+                      "email" : "john.doe@gmail.com",
+                      "phone" : "1234567890"
+                    }
+  /customers/{customerId}:
+    delete:
+      tags:
+      - customers
+      summary: The customers delete resource
+      description: The customers delete resource
+      operationId: deleteCustomers
+      parameters:
+      - name: customerId
+        in: path
+        description: The id of the customer
+        required: true
+        schema:
+          type: string
+      - name: X-AUTH-TOKEN
+        in: header
+        description: The authentication token
+        required: true
+        schema:
+          type: string
+        example: "1234"
+      responses:
+        "204":
+          description: "204"
+components:
+  schemas:
+    Customers.Customer:
+      title: Customers.Customer
+      type: array
+      items:
+        required:
+        - customerId
+        - email
+        - firstName
+        - lastName
+        - phone
+        type: object
+        properties:
+          lastName:
+            type: string
+            description: The last name of the customer
+          firstName:
+            type: string
+            description: The first name of the customer
+          phone:
+            type: string
+            description: The phone of the customer
+          customerId:
+            type: string
+            description: The id of the customer
+          email:
+            type: string
+            description: The email of the customer
+    CustomerRequest:
+      title: CustomerRequest
+      type: object
+    Customer:
+      title: Customer
+      required:
+      - customerId
+      - email
+      - firstName
+      - lastName
+      - phone
+      type: object
+      properties:
+        lastName:
+          type: string
+          description: The last name of the customer
+        firstName:
+          type: string
+          description: The first name of the customer
+        phone:
+          type: string
+          description: The phone of the customer
+        customerId:
+          type: string
+          description: The id of the customer
+        email:
+          type: string
+          description: The email of the customer
